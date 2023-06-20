@@ -1,0 +1,11 @@
+.idea
+/Library
+/Logs
+/Temp
+/Assembly-CSharp-Editor.csproj
+/Assembly-CSharp.csproj
+/obj
+/.idea
+/*.csproj
+/*.csproj.user
+/*.sln
