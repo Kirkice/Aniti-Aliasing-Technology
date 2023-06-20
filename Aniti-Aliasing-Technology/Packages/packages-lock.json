@@ -118,6 +118,15 @@
         "com.unity.render-pipelines.universal": "7.7.1"
       }
     },
+    "morphological-antialiasing": {
+      "version": "file:morphological-antialiasing",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "7.7.1",
+        "com.unity.render-pipelines.universal": "7.7.1"
+      }
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

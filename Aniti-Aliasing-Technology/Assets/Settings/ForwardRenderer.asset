@@ -31,7 +31,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RendererFeatures:
   - {fileID: -9158181321444190663}
-  m_RendererFeatureMap: 3996b33a9c9ae780
+  - {fileID: 7687927594878485430}
+  m_RendererFeatureMap: 3996b33a9c9ae780b6c3a7476a01b16a
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -54,3 +55,20 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &7687927594878485430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58b2c7592aa2b14eb9c777629b60172, type: 3}
+  m_Name: NewMorphologicalAntialiasingFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  mSettings:
+    AbsoluteLumaThreshold: 0.196
+    RelativeLumaThreshold: 0.1
+    ConsoleCharpness: 0.1

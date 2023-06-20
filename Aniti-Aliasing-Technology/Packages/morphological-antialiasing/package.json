@@ -1,0 +1,11 @@
+{
+  "name": "morphological-antialiasing",
+  "description": "MLAA抗锯齿.",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "displayName": "morphological-antialiasing",
+  "dependencies": {
+    "com.unity.render-pipelines.core": "7.7.1",
+    "com.unity.render-pipelines.universal": "7.7.1"
+  }
+}
