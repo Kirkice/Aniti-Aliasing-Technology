@@ -46,7 +46,7 @@ Shader "MLAA"
             return vout;
         }
 
-                    // AMD Morphological Anti-Aliasing (MLAA) Sample
+            // AMD Morphological Anti-Aliasing (MLAA) Sample
             //
             // https://github.com/GPUOpen-LibrariesAndSDKs/MLAA11
             //
