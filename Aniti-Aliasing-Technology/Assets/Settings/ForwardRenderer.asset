@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58b2c7592aa2b14eb9c777629b60172, type: 3}
   m_Name: NewMorphologicalAntialiasingFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   mSettings:
     AbsoluteLumaThreshold: 0.196
     RelativeLumaThreshold: 0.1
