@@ -1,5 +1,5 @@
 {
-    "name": "Unity.MLAA.Shaders",
+    "name": "Unity.SMAA.Shaders",
     "references": [
         "GUID:b4517ec124862cb4bb3b8b27d72843a6",
         "GUID:ab67fb10353d84448ac887a7367cbda8",
