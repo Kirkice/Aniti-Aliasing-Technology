@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   mSettings:
+    type: 0
     AbsoluteLumaThreshold: 0.08
-    RelativeLumaThreshold: 0.166
-    SubpixelBlending: 0.7
+    RelativeLumaThreshold: 0.15
+    SubpixelBlending: 1
 --- !u!114 &-1624098370129937412
 MonoBehaviour:
   m_ObjectHideFlags: 0

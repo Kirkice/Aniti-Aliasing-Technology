@@ -4,9 +4,15 @@ using UnityEngine.Rendering.Universal;
 
 public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
 {
+    public enum FxAAType
+    {
+        Quality,
+        Console
+    }
     [System.Serializable]
     public class Settings
     {
+        public FxAAType type = FxAAType.Quality;
         [Range(0.01f, 0.5f)] public float AbsoluteLumaThreshold = 0.1f;
         [Range(0.01f, 0.5f)] public float RelativeLumaThreshold = 0.1f;
         [Range(0.1f, 10.0f)] public float SubpixelBlending = 0.75f;
@@ -21,8 +27,8 @@ public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
 
         public FastApproximateAntiAliasingPass(Settings settings)
         {
-            material = CoreUtils.CreateEngineMaterial(Shader.Find("FxAA"));
             this.settings = settings;
+            material = CoreUtils.CreateEngineMaterial(Shader.Find("FxAA"));
         }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
@@ -41,6 +47,7 @@ public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
 
         void Render(CommandBuffer cmd, ref RenderingData renderingData)
         {
+            int passID = settings.type == FxAAType.Quality ? 0 : 1;
             var source = _renderer.cameraColorTarget;
             RenderTextureDescriptor opaqueDesc = renderingData.cameraData.cameraTargetDescriptor;
             opaqueDesc.depthBufferBits = 0;
@@ -50,7 +57,7 @@ public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
             
             RenderTexture temp = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR);
             material.SetVector("_FxAA_Params", new Vector4(settings.AbsoluteLumaThreshold, settings.RelativeLumaThreshold, settings.SubpixelBlending, 1));
-            Blit(cmd, source, temp, material);
+            Blit(cmd, source, temp, material,passID);
             Blit(cmd, temp, source);
             RenderTexture.ReleaseTemporary(temp);
         }
