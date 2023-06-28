@@ -9,7 +9,7 @@ public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
     {
         [Range(0.01f, 0.5f)] public float AbsoluteLumaThreshold = 0.1f;
         [Range(0.01f, 0.5f)] public float RelativeLumaThreshold = 0.1f;
-        [Range(0.1f, 10.0f)] public float ConsoleCharpness = 0.1f;
+        [Range(0.1f, 10.0f)] public float SubpixelBlending = 0.75f;
     }
 
     class FastApproximateAntiAliasingPass : ScriptableRenderPass
@@ -49,7 +49,7 @@ public class FastApproximateAntiAliasingFeature : ScriptableRendererFeature
             var h = renderingData.cameraData.camera.pixelHeight;
             
             RenderTexture temp = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR);
-            material.SetVector("_FxAA_Params", new Vector4(settings.AbsoluteLumaThreshold, settings.RelativeLumaThreshold, settings.ConsoleCharpness, 1));
+            material.SetVector("_FxAA_Params", new Vector4(settings.AbsoluteLumaThreshold, settings.RelativeLumaThreshold, settings.SubpixelBlending, 1));
             Blit(cmd, source, temp, material);
             Blit(cmd, temp, source);
             RenderTexture.ReleaseTemporary(temp);
