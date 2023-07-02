@@ -65,9 +65,9 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "14.0.7",
-      "depth": 1,
-      "source": "builtin",
+      "version": "file:com.unity.render-pipelines.core@14.0.7",
+      "depth": 0,
+      "source": "embedded",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
@@ -76,9 +76,9 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "14.0.7",
+      "version": "file:com.unity.render-pipelines.universal@14.0.7",
       "depth": 0,
-      "source": "builtin",
+      "source": "embedded",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.8.4",
@@ -168,6 +168,15 @@
       "dependencies": {
         "com.unity.render-pipelines.core": "7.7.1",
         "com.unity.render-pipelines.universal": "7.7.1"
+      }
+    },
+    "temporal-anti-aliasing": {
+      "version": "file:temporal-antialiasing",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "14.0.7",
+        "com.unity.render-pipelines.universal": "14.0.7"
       }
     },
     "com.unity.modules.ai": {

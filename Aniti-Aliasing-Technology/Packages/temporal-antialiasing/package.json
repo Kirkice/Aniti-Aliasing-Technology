@@ -1,0 +1,11 @@
+{
+  "name": "temporal-anti-aliasing",
+  "description": "TAA抗锯齿.",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "displayName": "temporal-anti-aliasing",
+  "dependencies": {
+    "com.unity.render-pipelines.core": "14.0.7",
+    "com.unity.render-pipelines.universal": "14.0.7"
+  }
+}

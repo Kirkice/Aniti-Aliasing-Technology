@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 606e9527488b52e438fb81af67e0092a, type: 3}
-  m_Name: FastApproximateAntiAliasingFeature
+  m_Name: FastApproximateAntiAliasing
   m_EditorClassIdentifier: 
   m_Active: 0
   mSettings:
@@ -18,6 +18,23 @@ MonoBehaviour:
     AbsoluteLumaThreshold: 0.08
     RelativeLumaThreshold: 0.15
     SubpixelBlending: 1
+--- !u!114 &-4089828035028264528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46df9158ca7f91541bfa434b11aa4288, type: 3}
+  m_Name: TemporalAntiAliasing
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  mSettings:
+    AAQuality: 2
+    spread: 1
+    feedback: 0.175
 --- !u!114 &-1624098370129937412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +70,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7493067a45ae94b4f83bec9b519dea7b, type: 3}
-  m_Name: SubpixelMorphologicalAntialiasingFeature
+  m_Name: SubpixelMorphologicalAntialiasing
   m_EditorClassIdentifier: 
   m_Active: 0
   mSettings:
@@ -88,7 +105,8 @@ MonoBehaviour:
   - {fileID: -9158181321444190663}
   - {fileID: 7687927594878485430}
   - {fileID: -478919183837223837}
-  m_RendererFeatureMap: 3996b33a9c9ae780b6c3a7476a01b16a6324432b8a895af9
+  - {fileID: -4089828035028264528}
+  m_RendererFeatureMap: 3996b33a9c9ae780b6c3a7476a01b16a6324432b8a895af9b0d9b42b12033ec7
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -140,7 +158,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b58b2c7592aa2b14eb9c777629b60172, type: 3}
-  m_Name: MorphologicalAntialiasingFeature
+  m_Name: MorphologicalAntialiasing
   m_EditorClassIdentifier: 
   m_Active: 0
   mSettings:

@@ -1,0 +1,18 @@
+{
+    "name": "Unity.TAA.Shaders",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b4517ec124862cb4bb3b8b27d72843a6",
+        "GUID:ab67fb10353d84448ac887a7367cbda8",
+        "GUID:46a67ded66a63de48b9329c593fc08de"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
