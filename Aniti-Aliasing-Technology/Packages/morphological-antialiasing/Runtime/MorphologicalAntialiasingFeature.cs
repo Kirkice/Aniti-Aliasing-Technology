@@ -7,9 +7,7 @@ public class MorphologicalAntialiasingFeature : ScriptableRendererFeature
     [System.Serializable]
     public class Settings
     {
-        [Range(0.01f, 0.5f)] public float AbsoluteLumaThreshold = 0.1f;
-        [Range(0.01f, 0.5f)] public float RelativeLumaThreshold = 0.1f;
-        [Range(0.1f, 10.0f)] public float ConsoleCharpness = 0.1f;
+        [Range(1.0f, 300.0f)] public float EdgeDetectionThreshold = 12.0f;
     }
 
     class MorphologicalAntialiasingPass : ScriptableRenderPass
@@ -48,11 +46,20 @@ public class MorphologicalAntialiasingFeature : ScriptableRendererFeature
             var w = renderingData.cameraData.camera.pixelWidth;
             var h = renderingData.cameraData.camera.pixelHeight;
             
-            RenderTexture temp = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR);
-            material.SetVector("_MLAA_PARAMS", new Vector4(settings.AbsoluteLumaThreshold, settings.RelativeLumaThreshold, settings.ConsoleCharpness, 1));
-            Blit(cmd, source, temp, material);
-            Blit(cmd, temp, source);
-            RenderTexture.ReleaseTemporary(temp);
+            RenderTexture edgeTex = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR);
+            RenderTexture edgeCountTex = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR);
+
+            material.SetVector("gParam", new Vector4(0, 0, 1 / settings.EdgeDetectionThreshold, 0));
+            Blit(cmd, source, edgeTex, material,0);
+            material.SetTexture("_EdgeMaskTex",edgeTex);
+            Blit(cmd, source, edgeCountTex, material,1);
+            Blit(cmd, source, edgeTex);
+            
+            material.SetTexture("_EdgeCountTex",edgeCountTex);
+            Blit(cmd, edgeTex, source,material,2);
+            
+            RenderTexture.ReleaseTemporary(edgeTex);
+            RenderTexture.ReleaseTemporary(edgeCountTex);
         }
 
         public void Setup(ScriptableRenderer renderer, RenderTargetHandle dest)

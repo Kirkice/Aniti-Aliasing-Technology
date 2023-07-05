@@ -19,11 +19,33 @@ Shader "MLAA"
 
             HLSLPROGRAM
             #include "MLAA.hlsl"
-            #pragma vertex VS
-            #pragma fragment PS
+            #pragma vertex ScreenQuadVS
+            #pragma fragment MLAA_SeperatingLines_PS
             ENDHLSL
-
         }
 
+        Pass
+        {
+            ZTest Always
+            Cull Off
+
+            HLSLPROGRAM
+            #include "MLAA.hlsl"
+            #pragma vertex ScreenQuadVS
+            #pragma fragment MLAA_ComputeLineLength_PS
+            ENDHLSL
+        }
+        
+        Pass
+        {
+            ZTest Always
+            Cull Off
+
+            HLSLPROGRAM
+            #include "MLAA.hlsl"
+            #pragma vertex ScreenQuadVS
+            #pragma fragment MLAA_BlendColor_PS
+            ENDHLSL
+        }
     }
 }

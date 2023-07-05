@@ -165,7 +165,10 @@ public class SubpixelMorphologicalAntialiasingFeature : ScriptableRendererFeatur
 				{
 					// Neighborhood Blending
 					material.SetTexture("_BlendTex", rt2);
-					cmd.Blit(source, source, material, passNeighborhoodBlending);
+					RenderTexture temp = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.DefaultHDR); 
+					cmd.Blit(source, temp, material, passNeighborhoodBlending);
+					cmd.Blit(temp,source);
+					RenderTexture.ReleaseTemporary(temp);
 				}
 			}
 
